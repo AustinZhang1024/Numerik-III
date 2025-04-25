@@ -1,0 +1,19 @@
+[project]
+authors = [{ name = "Austin Zhang", email = "AustinZhang1024@gmail.com" }]
+dependencies = []
+name = "Numerik_III"
+requires-python = ">= 3.13"
+version = "0.1.0"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+pre-commit = ">=4.2.0,<5"
