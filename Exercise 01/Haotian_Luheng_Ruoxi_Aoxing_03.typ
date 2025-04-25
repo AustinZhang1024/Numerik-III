@@ -9,8 +9,8 @@
 
 == i
 
-With the help of the nabla operator given in the sheet,
-we can get:
+Using the nabla operator provided in the sheet,
+we derive:
 
 $
   nabla dot nabla u &= nabla dot (diff_x u, diff_y u, diff_z u)^T \
@@ -20,7 +20,8 @@ $
 
 == ii
 
-With theorem of Schwarz, we have:
+With theorem of Schwarz,
+we have:
 
 $
   diff_(x y) v_3 = diff_(y x) v_3 \
@@ -28,7 +29,7 @@ $
   diff_(y z) v_1 = diff_(z y) v_1
 $
 
-then
+Thus:
 
 $
   nabla dot (nabla times bold(v)) &= nabla dot (diff_y v_3-diff_z v_2, diff_z v_1-diff_x v_3, diff_x v_2-diff_y v_1)^T \
@@ -56,7 +57,7 @@ $
   bold(a) times bold(b) = (a_2 b_3 - a_3 b_2, a_3 b_1 - a_1 b_3, a_1 b_2 - a_2 b_1)^T
 $
 
-then we can get:
+Then we derive:
 
 $
   nabla times (u bold(v)) &= nabla times (u (v_1, v_2, v_3)^T) \
@@ -79,7 +80,7 @@ $
 
 = Analytic solution of a one-dimensional heat equation.
 
-We can just pulg in $u_0$ into the equation:
+We can just plug in $u_0$ into the equation:
 
 $
   u(t,x) =& 1 / sqrt(4 pi t) integral_(-infinity)^(+infinity) u_0(z) e^(-(x-z)^2 / (4t)) "d"z \
@@ -110,7 +111,8 @@ $
   -(n omega)^2 sum_(n=1)^infinity beta_n e^(-(n omega)^2 t) sin(n omega x)
 $
 
-So $diff_t u-diff_(x x)u=0$ satisfied.
+Thus,
+$diff_t u-diff_(x x)u=0$ satisfied.
 
 == Validation of the 2nd equation
 
@@ -136,8 +138,8 @@ $
 $
 
 By calculating the determinant of $A-lambda I$,
-we can get the characteristic polynomial is $-lambda^3+8lambda^2-12lambda+1$,
-and the roots have $lambda_1lambda_2lambda_3>0$.
+we find the characteristic polynomial is $-lambda^3+8lambda^2-12lambda+1$,
+and the roots satisfy $lambda_1lambda_2lambda_3>0$.
 
 So the original equation is elliptic.
 
@@ -160,7 +162,7 @@ one of the roots is $lambda_1=0$,
 and the other two satisfy $lambda(lambda+1)=e^(2z) / 4$
 
 To solve this equation,
-suppose two functions:
+we consider two functions:
 $y_1=lambda(lambda+1)$ and $y_2=e^(2z) / 4$,
 and we can get the intersection of $y_1$ and $y_2$ and we can get the roots.
 
@@ -216,4 +218,23 @@ And $det(A-lambda I)=(a-lambda)^2-a^2=lambda^2-2a lambda=lambda(lambda-2a)$.
 
 So the roots of $lambda(lambda-2a)=0$ are $lambda_1=0$ and $lambda_2=2a!=0$.
 
-So the original equation is parabolic.
+Because the original is a linear PDE,
+to say it's parabolic,
+we need to check $op("rank")(A(bold(x)),bold(b)(bold(x)))=d$.
+
+We can derive:
+
+$
+  op("rank")(A(bold(x)),bold(b)(bold(x))) &= op("rank")(mat(a, a; a, a), mat(b; c)) \
+  &= op("rank")(mat(a, a, b; a, a, c)) \
+  &= op("rank")(mat(a, a, b; 0, 0, c-b))
+$
+
+If $b!=c$,
+we find that $op("rank")(A(bold(x)),bold(b)(bold(x)))=2$.
+Then the original equation is parabolic.
+
+If $b=c$,
+we find that $op("rank")(A(bold(x)),bold(b)(bold(x)))=1!=2$.
+Then the original equation is not elliptic,
+hyperbolic or parabolic.
