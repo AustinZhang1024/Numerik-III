@@ -7,6 +7,9 @@
 
 #let conf(exercise_num: none, doc) = {
   set math.equation(numbering: "(1)")
+  set heading(numbering: (first, ..other) => if other.pos().len() == 0 {
+    return str(first) + "."
+  })
   align(center)[
     #set par(spacing: 7pt)
     #text(size: 24pt, weight: "bold")[Numerical Mathematics III]
@@ -16,9 +19,9 @@
     Exercise Group 03
 
     #for (first, last, email) in info [
-      #box(width: 7em)[#align(left)[#first, #last]] #box(
-        width: 12em,
-      )[#align(right)[#link("mailto:" + email)]] \
+      #box(width: 7em)[#align(left)[#first, #last]] #box(width: 12em)[#align(
+          right,
+        )[#link("mailto:" + email)]] \
     ]
   ]
   doc
