@@ -20,3 +20,10 @@ pre-commit = ">=4.2.0,<5"
 jupyterlab = ">=4.4.1,<5"
 numpy = ">=2.2.5,<3"
 scipy = ">=1.15.2,<2"
+pyright = ">=1.1.400,<2"
+commitizen = ">=4.6.0,<5"
+ruff = ">=0.11.8,<0.12"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["D203", "D212", "D401", "COM812", "ISC001", "N802", "N803", "N806"]
