@@ -85,6 +85,8 @@ $
                     & stretch(=)^(#ref(<Eq:3>)) k'(x_i) + O(h^2) \
 $
 
+and
+
 $
   (a_(i+1)+a_i) / 2 &= (k_(i+1) + 2k_i + k_(i-1)) / 4 \
   &stretch(=)^("Taylor Expansion") 1 / 4 (k(x_i)+h k'(x_i)+O(h^2)+2k(x_i)-h k'(x_i)+O(h^2)) \
@@ -246,3 +248,8 @@ $
 where $bold(u)=vec(u_(0,0), u_(0,h), dots.v, u_(0,1), u_(h,0), dots.v, u_(1,1))$ and $bold(b)=h^2vec(-f(0,0), -f(0,h), dots.v, -f(0,1), -f(h,0), dots.v, -f(1,1))$
 
 and we can get the code.
+
+Assume the order of convergence is $p$,
+and we denote $E_h$ and $E_(h / 2)$ as the errors of the two finest grids.
+Then we have $E_h approx C h^p$ and $E_(h / 2) approx C 2^(-p)h^p$.
+So $p approx log_2(E_h / E_(h / 2))$
